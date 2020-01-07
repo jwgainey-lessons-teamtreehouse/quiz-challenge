@@ -9,9 +9,12 @@ var question;
 var answer;
 var response;
 var html;
+var correct = [];
+var wrong = [];
 
 function print(message) {
-    document.write(message);
+    var outputDiv = document.getElementById('output');
+    outoutDiv.innerHTML = message;
   }
 
   for (var i = 0; i < questions.length; i += 1 ) {
@@ -20,6 +23,9 @@ function print(message) {
       response = parseInt(prompt(question));
       if ( response === answer) {
           correctAnswers += 1;
+          correct.push(question);
+      } else {
+          wrong.push(question);
       }
   }
 
