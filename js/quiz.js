@@ -14,10 +14,19 @@ var wrong = [];
 
 function print(message) {
     var outputDiv = document.getElementById('output');
-    outoutDiv.innerHTML = message;
+    outputDiv.innerHTML = message;
   }
 
-  for (var i = 0; i < questions.length; i += 1 ) {
+function buildList(arr) {
+    var listHTML = '<ol>';
+    for (var i = 0; i < arr.length; i +=1) {
+        listHTML += '<li>' + arr[i] + '</li>';
+ }
+    listHTML += '</ol>';
+    return listHTML;
+}
+  
+for (var i = 0; i < questions.length; i += 1 ) {
       question = questions[i][0];
       answer = questions[i][1];
       response = parseInt(prompt(question));
@@ -30,5 +39,9 @@ function print(message) {
   }
 
   html = "You got " + correctAnswers + " questions(s) right!";
+  html += '<h2>You got these questions correct:</h2>';
+  html += buildList(correct);
+  html += '<h2>You got thse questions wrong:</h2';
+  html += buildList(wrong);
   print(html);
   
